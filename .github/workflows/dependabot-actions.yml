@@ -1,0 +1,18 @@
+name: Dependabot Alerts to DefectDojo
+ 
+on:
+  schedule:
+    - cron: "0 6 * * *"   # UTC, i.e. 14:00 Manila
+  workflow_dispatch:
+ 
+permissions: {}
+ 
+jobs:
+  dependabot:
+    # Replace <owner>. Pin to a tag or commit SHA once it's stable.
+    uses: Mknukn/shared-workflows/.github/workflows/dependabot-to-defectdojo.yml@main
+    with:
+      product_name: VAmPI
+    secrets:
+      GH_SECURITY_PAT: ${{ secrets.GH_SECURITY_PAT }}
+      DEFECTDOJO_API_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
