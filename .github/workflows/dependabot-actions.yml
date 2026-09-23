@@ -10,7 +10,7 @@ permissions: {}
 jobs:
   dependabot:
     # Replace <owner>. Pin to a tag or commit SHA once it's stable.
-    uses: Mknukn/shared-workflows/.github/workflows/dependabot-to-defectdojo.yml@main
+    uses: Mknukn/shared-workflows/.github/workflows/dependabot-actions.yml@main
     with:
       product_name: VAmPI
     secrets:
