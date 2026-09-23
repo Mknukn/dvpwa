@@ -19,7 +19,7 @@ jobs:
       DEFECTDOJO_API_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
 
   codeql:
-    uses: Mknukn/shared-workflows/.github/workflows/codeql-to-defectdojo.yml@v1
+    uses: Mknukn/shared-workflows/.github/workflows/codeql-actions.yml@v1
     with:
       product_name: DVPWA
       languages: '["python"]'
