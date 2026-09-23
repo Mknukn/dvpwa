@@ -1,0 +1,27 @@
+name: Security Pipeline
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+
+jobs:
+  scans:
+    uses: Mknukn/shared-workflows/.github/workflows/security-scans.yml@v1
+    with:
+      product_name: DVPWA
+    secrets:
+      DEFECTDOJO_API_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
+
+  codeql:
+    uses: Mknukn/shared-workflows/.github/workflows/codeql-to-defectdojo.yml@v1
+    with:
+      product_name: DVPWA
+      languages: '["python"]'
+    secrets:
+      DEFECTDOJO_API_KEY: ${{ secrets.DEFECTDOJO_API_KEY }}
